@@ -4,10 +4,12 @@ import { Button, Grid } from '@mui/material';
 import CreateExpenseGroupModal from '../ExpenseDashboard/CreateExpenseGroupModal';
 import AddExpenseModal from '../ExpenseDashboard/AddExpenseModal';
 import ExpenseCard from '../ExpenseDashboard/ExpenseCard';
+import ViewExpenseModal from '../ExpenseDashboard/ViewExpenseModal';
 
 export default function Dashboard() {
   const [openModal, setOpenModal] = useState(false);
   const [openAddExpenseModal, setAddExpenseModal] = useState(false);
+  const [openViewExpenseModal, setViewExpenseModal] = useState(false);
   const [expenseGroups, setExpenseGroups] = useState({});
   const [updateList, setUpdateList] = useState(false);
   useEffect(() => {
@@ -42,6 +44,7 @@ export default function Dashboard() {
                 name={expenseGroups[group].name}
                 members={expenseGroups[group].members}
                 setOpen={setAddExpenseModal}
+                setViewExpenseModal={setViewExpenseModal}
               />
             </Grid>
           ))}
@@ -55,6 +58,10 @@ export default function Dashboard() {
       <AddExpenseModal
         open={openAddExpenseModal}
         setOpen={setAddExpenseModal}
+      />
+      <ViewExpenseModal
+        open={openViewExpenseModal}
+        setOpen={setViewExpenseModal}
       />
     </div>
   );

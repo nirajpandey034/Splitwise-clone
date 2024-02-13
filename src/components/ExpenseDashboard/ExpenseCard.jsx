@@ -6,7 +6,13 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function ExpenseCard({ id, name, members = [], setOpen }) {
+export default function ExpenseCard({
+  id,
+  name,
+  members = [],
+  setOpen,
+  setViewExpenseModal,
+}) {
   return (
     <Card
       sx={{
@@ -36,7 +42,11 @@ export default function ExpenseCard({ id, name, members = [], setOpen }) {
         >
           Add Expense
         </Button>
-        <Button size='small' variant='contained' onClick={() => setOpen(true)}>
+        <Button
+          size='small'
+          variant='contained'
+          onClick={() => setViewExpenseModal(true)}
+        >
           View Expenses
         </Button>
       </CardActions>
