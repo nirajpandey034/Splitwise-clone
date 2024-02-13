@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './Dashboard.css';
 import { Button, Grid, Typography } from '@mui/material';
 import CreateExpenseGroupModal from '../ExpenseDashboard/CreateExpenseGroupModal';
 import AddExpenseModal from '../ExpenseDashboard/AddExpenseModal';
@@ -23,15 +22,19 @@ export default function Dashboard() {
   }, [updateList]);
   return (
     <div>
-      <Typography variant='h1' sx={{ textDecoration: 'underline' }}>
+      <Typography
+        variant='h1'
+        gutterBottom
+        sx={{ textDecoration: 'underline' }}
+      >
         Split-Wise Clone
       </Typography>
       <Button
-        variant='contained'
-        sx={{ textTransform: 'unset', textAlign: 'right' }}
+        variant='outlined'
+        sx={{ textTransform: 'unset' }}
         onClick={() => setOpenModal(!openModal)}
       >
-        Split your Expense
+        Split Expense
       </Button>
       <Grid container spacing={3} sx={{ mt: 2, flexWrap: 'wrap' }}>
         {Object.keys(expenseGroups).length > 0 &&

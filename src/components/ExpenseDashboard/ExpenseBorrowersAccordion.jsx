@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
 import CustomAccordion from '../../shared/CustomAccordion';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
 export default function ExpenseBorrowersAccordion({ member, details }) {
   const [borrowList, setBorrowList] = useState([]);
   useEffect(() => {
@@ -17,14 +20,18 @@ function getCustomTransaction(member, details) {
       <p key={member}>
         {details.take !== 0 && (
           <>
-            <span style={{ color: 'green' }}>Will take Rs. {details.take}</span>
+            <span style={{ color: 'green' }}>
+              {<ArrowDropUpIcon />} TAKE Rs. {details.take}
+            </span>
             <br />
           </>
         )}
         {details.give !== 0 && (
           <>
             <span>
-              will give <span style={{ color: 'red' }}>Rs. {details.give}</span>
+              <span style={{ color: 'red' }}>
+                {<ArrowDropDownIcon />}GIVE Rs. {details.give}
+              </span>
             </span>
           </>
         )}
