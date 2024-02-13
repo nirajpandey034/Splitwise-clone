@@ -10,13 +10,16 @@ export default function ViewExpenseDashboard() {
     const currentExpense = localStorage.getItem('SELECTED_EXPENSE');
 
     const currentExpenseGroup = expenseGroup[currentExpense];
-    setExpenseGroup(currentExpenseGroup.ledger);
+    setExpenseGroup(
+      currentExpenseGroup.ledger ? currentExpenseGroup.ledger : {}
+    );
     setMembers(currentExpenseGroup.members);
   }, []);
 
   return (
     <div>
-      {members.length > 0 &&
+      {Object.keys(expenseGroup).length > 0 &&
+        members.length > 0 &&
         members.map((item) => {
           return (
             <CustomAccordion
@@ -32,6 +35,9 @@ export default function ViewExpenseDashboard() {
             />
           );
         })}
+      {Object.keys(expenseGroup).length === 0 && (
+        <p>Nothing Available. Add Some Expense</p>
+      )}
     </div>
   );
 }

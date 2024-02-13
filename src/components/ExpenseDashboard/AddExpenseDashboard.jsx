@@ -89,6 +89,7 @@ export default function AddExpenseDashboard({ setOpen }) {
         <TextField
           label='Amount to split'
           amount={amount}
+          type='number'
           onChange={(e) => {
             setAmount(e.target.value);
           }}
